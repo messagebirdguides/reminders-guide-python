@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<meta charset="utf-8">
+<title>MessageBird Appointment Reminder App</title>
+</head>
+
+<body>
+<!--If form submission results in error, flash error message -->
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+    
+<div>
+  <h1>BeautyBird Appointment Scheduling</h1>
+  <form action="{{ url_for('makeAppointment') }}" method="post">
+  <div>
+    <label for="name">Your name: </label>
+    <input type="text" name="customer_name" required>
+  </div>
+  <div>
+    <label for="treatment">Your desired treatment: </label>
+    <input type="text" name="treatment" required>
+  </div>
+  <div>
+    <label for="appt-date">Appointment date: </label>
+    <input type="date" id="appt-date" name="appt-date" required>
+  </div>
+  <div>
+    <label for="appt-time">Appointment time: </label>
+    <input type="time" id="appt-time" name="appt-time" required>
+  </div>
+  <div>
+    <label for="phone">Your mobile number: </label>
+    <input type="tel" id="phone" name="phone" required>
+  </div>
+  <div>
+    <input type="submit" value="Book now!">
+  </div>
+  </form>
+
+</div>
+
+
+</body> </html>
